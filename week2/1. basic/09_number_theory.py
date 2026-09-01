@@ -22,7 +22,7 @@
 힌트:
 - 유클리드 호제법: gcd(a, b) = gcd(b, a % b)
 - LCM 공식: lcm(a, b) = (a × b) / gcd(a, b)
-"""
+""" 
 from math import sqrt
 
 def gcd(a, b):
