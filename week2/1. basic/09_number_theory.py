@@ -23,6 +23,7 @@
 - 유클리드 호제법: gcd(a, b) = gcd(b, a % b)
 - LCM 공식: lcm(a, b) = (a × b) / gcd(a, b)
 """
+from math import sqrt
 
 def gcd(a, b):
     """
@@ -37,7 +38,10 @@ def gcd(a, b):
     # TODO: 유클리드 호제법 구현
     # base case: b가 0이면 a 반환
     # recursive를 이용 
-    pass
+    if b == 0 :
+        return a
+    else : 
+        return gcd(b, a%b)
 
 def gcd_iterative(a, b):
     """
@@ -51,7 +55,9 @@ def gcd_iterative(a, b):
     """
     # TODO: 반복문으로 구현
     # b가 0이 될 때까지 반복
-    pass
+    while b != 0 :
+        a, b = b, a % b
+    return a
 
 def lcm(a, b):
     """
@@ -64,7 +70,8 @@ def lcm(a, b):
         최소공배수
     """
     # TODO: LCM 계산
-    pass
+    value_lcm = a * b // gcd(a,b)
+    return value_lcm
 
 def extended_gcd(a, b):
     """
@@ -81,7 +88,12 @@ def extended_gcd(a, b):
     # base case: b가 0이면 (a, 1, 0) 반환    
     # recursive case
     # 역추적하며 x, y 계산
-    pass
+    if b == 0 :
+        return (a, 1, 0)
+    
+    else :
+        g, x, y = extended_gcd(b, a%b)
+        return (g, y, x-(a//b)*y)
 
 def is_prime(n):
     """
@@ -97,7 +109,12 @@ def is_prime(n):
     # n이 2보다 작으면 False
     # 2부터 sqrt(n)까지 나누어 떨어지는지 확인    
     # 3부터 sqrt(n)까지 홀수만 확인
-    pass 
+    if n < 2 :
+        return False
+    for x in range(2, int(sqrt(n))+1) :
+        if n % x == 0 :
+            return False
+    return True                           
 
 # 테스트 케이스
 if __name__ == "__main__":
