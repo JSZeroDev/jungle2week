@@ -153,7 +153,7 @@ class LinkedList:
         # 위 반복문이 끝나면 current 가 곧 마지막 노드입니다.
         # TODO: current.next = new_node
         current.next = new_node
-
+ 
     def print_list(self):
         """
         리스트의 모든 값을 앞에서부터 차례로 모아 반환합니다.
